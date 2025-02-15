@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Initial Estimate Price Calculator</title>
+	 <!-- Bootstrap CSS -->
+	 <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+	<link href="fonts/Ysabeau-VariableFont_wght.ttf" rel="stylesheet">
+	 <link href="https://fonts.cdnfonts.com/css/mont" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/print.min.css" rel="stylesheet">
+    <!-- Main CSS -->
+	<link rel="stylesheet" href="css/style.css">
+	
+	<style>
+		.flex_subdiv .error {
+			position: absolute;
+			bottom: 0;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div class="container clearboth">
+		<div class="row price_container top_section">
+			<div class="col-md-6">
+				<img src="images/logo.png" alt="logo" id="logo" class=""/>
+			</div>
+			<div class="col-md-6">
+				<h1 class="" >Cabinet Cost <br/>Estimator</h1>
+			</div>
+		</div>
+		
+		<div class="row price_container">
+
+			<form id="priceCalcForm">
+			
+				<div class="row input_field">
+					<div class="col-md-5 flex_col">
+						<h2>Cabinet Details</h2>
+						<div id="" class="flex_row_inp">
+							<label>
+								Main Brand
+							</label>
+							<div class="">
+								<select id="main_brand" name ="main_brand" required="required" class="form-control">
+									
+								</select>
+							</div>
+							
+						</div>
+
+						<div id="subbrand_div" class="flex_row_inp">	
+							<label>
+								Door Style
+							</label>
+							<div class="calc_field_flex">
+								<select id="sub_brand" name ="sub_brand" required="required" class="form-control">
+									
+								</select>
+								
+								<div class="calc_field_hidden hidden" id="sub_brand_calc">
+									<!-- estimated amount will be inserted here -->
+								</div>
+								<input type="checkbox" class="show_calc_field_hidden "/>
+							</div>
+							
+						</div>					
+					
+					
+						<div id="" class="flex_row_inp">
+							<label>
+								Wood Specie
+							</label>
+							<div class="calc_field_flex">
+								<select id="wood_specie" name ="wood_specie" required="required" class="form-control">
+									<option name="" value="0" selected="selected">N/A</option>
+									<option name="" value="5" >Maple</option>
+									<option name="" value="10" >Cherry</option>
+									<option name="" value="15" >Walnut</option>
+									<option name="" value="20" >White Oak</option>
+								</select>
+								<div class="calc_field_hidden hidden" id="wood_specie_calc">
+									<!-- estimated amount will be inserted here -->
+								</div>
+								<input type="checkbox" class="show_calc_field_hidden "/>
+							</div>
+							
+						</div>
+
+						<div id="" class="flex_row_inp">	
+							<label>
+								Door Finish
+							</label>
+							<div class="calc_field_flex">
+								<select id="door_finish" name ="door_finish" required="required" class="form-control">
+									<option name="" value="0" selected="selected">N/A</option>
+									<option name="" value="5" >Paint</option>
+									<option name="" value="10" >Stain</option>
+									<option name="" value="15" >Laminate</option>
+								</select>
+								<div class="calc_field_hidden hidden" id="door_finish_calc">
+									<!-- estimated amount will be inserted here -->
+								</div>
+								<input type="checkbox" class="show_calc_field_hidden "/>
+							</div>
+							
+						</div>			
+					</div>
+				
+				
+				
+				
+				
+					<div class="col-md-5 flex_col">
+						<h2>Space Details</h2>
+						<div id="" class="flex_row_inp">
+							<label>
+								Linear Feet
+							</label>
+							<div class="">
+								<input type="number" id="linear_feet" class="number_req form-control cabinets_sec" name ="linear_feet" value="1"/>
+							</div>
+						</div>
+						
+						
+						<div id="" class="flex_row_inp">
+							<label>
+								Height
+							</label>
+							<div class="calc_field_flex">
+								<select id="height" name ="height" required="required" class="form-control">
+									<option name="" value="0" selected="selected">8'</option>
+									<option name="" value="10" >8.5'</option>
+									<option name="" value="15" >9'</option>
+									<option name="" value="25" >9.5'</option>
+									<option name="" value="30" >10</option>
+								</select>
+								<div class="calc_field_hidden hidden" id="height_calc">
+									<!-- estimated amount will be inserted here -->
+								</div>
+								<input type="checkbox" class="show_calc_field_hidden "/>
+							</div>
+						</div>
+										
+					
+					
+						<div id="" class="flex_row_inp">	
+							<label>
+								Base Cabinets
+							</label>
+							<div class="calc_field_flex">
+								<input type="number" id="base_cabinets" class="number_req form-control cabinets_sec" name ="base_cabinets" />
+								<div class="calc_field_hidden hidden" id="base_cabinets_calc">
+									<!-- estimated amount will be inserted here -->
+								</div>
+								<input type="checkbox" class="show_calc_field_hidden "/>
+							</div>
+						</div>	
+						
+						<div id="" class="flex_row_inp">
+							<label>
+								Wall Cabinets
+							</label>
+							<div class="calc_field_flex">
+								<input type="number" id="wall_cabinets" class="number_req form-control cabinets_sec" name ="wall_cabinets" />
+								<div class="calc_field_hidden hidden" id="wall_cabinets_calc">
+									<!-- estimated amount will be inserted here -->
+								</div>
+								<input type="checkbox" class="show_calc_field_hidden "/>
+							</div>
+						</div>
+
+								
+					</div>
+				
+				</div>
+				
+				<div class="row input_field">
+					<div class="col-md-5 flex_col">
+						<h2>Enhancements</h2>
+					
+						<div id="" class="flex_row_inp">	
+							<label>
+								Tall Cabinets
+							</label>
+							<div class="calc_field_flex">
+								<input type="number" id="tall_cabinets" class="number_req form-control cabinets_sec" name ="tall_cabinets" value="0"/>
+								<div class="calc_field_hidden hidden" id="tall_cabinets_calc">
+									<!-- estimated amount will be inserted here -->
+								</div>
+								<input type="checkbox" class="show_calc_field_hidden "/>
+							</div>
+						</div>	
+						
+						<div id="" class="flex_row_inp">
+							<label>
+								Drawer Bases
+							</label>
+							<div class="calc_field_flex">
+								<select id="drawer_bases" name ="drawer_bases" required="required" class="form-control">
+									<option name="" value="0" selected="selected">None</option>
+									<option name="" value="7" >Minimal</option>
+									<option name="" value="15" >Many</option>
+									<option name="" value="25" >All</option>
+								</select>
+								<div class="calc_field_hidden hidden" id="drawer_bases_calc">
+									<!-- estimated amount will be inserted here -->
+								</div>
+								<input type="checkbox" class="show_calc_field_hidden "/>
+							</div>
+						</div>
+
+						<div id="" class="flex_row_inp">	
+							<label>
+								Molding
+							</label>
+							<div class="calc_field_flex">
+								<select id="molding" name ="molding" required="required" class="form-control">
+									<option name="" value="0" selected="selected">N/A</option>
+									<option name="" value="8" >Single</option>
+									<option name="" value="12" >Double</option>
+									<option name="" value="18" >Soffit</option>
+								</select>
+								<div class="calc_field_hidden hidden" id="molding_calc">
+									<!-- estimated amount will be inserted here -->
+								</div>
+								<input type="checkbox" class="show_calc_field_hidden "/>
+							</div>
+						</div>					
+					</div>
+					<div class="col-md-5 flex_col">
+						<h2>Specialities</h2>
+						
+
+						<div id="" class="flex_row_inp">	
+							<label>
+								Channals
+							</label>
+							<div class="calc_field_flex">
+								<select id="channals" name ="channals" required="required" class="form-control">
+									<option name="" value="0" selected="selected">No</option>
+									<option name="" value="25" >Yes</option>
+								</select>
+								<div class="calc_field_hidden hidden" id="channals_calc">
+									<!-- estimated amount will be inserted here -->
+								</div>
+								<input type="checkbox" class="show_calc_field_hidden "/>
+							</div>
+						</div>	
+
+						<div id="accessories-container" class="flex_row_inp">
+							<label>Accessories</label>
+							<div class="calc_field_flex">
+								<select id="accessories" name="accessories" required="required" class="form-control">
+									<option value="0" selected="selected">Select Quantity</option>
+								</select>
+								<div class="calc_field_hidden hidden" id="acessories_calc">
+									<!-- estimated amount will be inserted here -->
+								</div>
+								
+								<input type="checkbox" class="show_calc_field_hidden "/>
+							</div>
+						</div>
+						
+						<div id="" class="flex_row_inp">
+							<label>
+								Speciality Items
+							</label>
+							<div class="input_field_n_dollar">
+								<span class="dollar_sign"> $ </span>
+								<input type="text" id="speciality_item" class="number_req form-control speciality_item" name ="speciality_item" value="0"/>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				
+				<div class="row input_field">
+				
+					<!--
+					<div class="col-md-12">
+						<input type="checkbox" id="toggleOptional" /> Show Each Calculated Value
+					</div>
+					-->
+					<div class="col-md-12 text-center">
+						<input type="submit" id="price_calc_btn" type="button" class="btn btn-primary" value="Calculate">
+						
+					</div>
+					<div class="col-md-12 text-center">
+						<div id="range" class="flex estimate">
+							
+									Range
+								
+									<span class="" id="range_estimate_low">
+										<!-- estimated amount will be inserted here -->
+									</span>
+									<span> &nbsp; - &nbsp;</span>
+									<span class="" id="range_estimate_high">
+										<!-- estimated amount will be inserted here -->
+									</span>
+									
+							</div>	
+					</div>	
+					 <a href="#">  </a>
+					<div class="col-md-12 text-center">
+						<div id="estimated_total" class="flex estimate">
+							<div>
+								Total
+							
+							<span class="" id="estimated_total_value">
+								<!-- estimated amount will be inserted here -->
+							</span>
+							
+							</div>
+						</div>			
+					</div>			
+					
+				</div>
+						
+				
+				<div class="col-md-12 text-center">
+					
+				</div>
+			
+			</form>	
+			<!--
+			<table class="table table-bordered" id="resultsTable">
+					<tr class="retail">
+						<td scope="row" class="thead-dark text-center">Total Retail Price</td>
+						<td id="clientPrice" class="text-center"> - </td>
+					</tr>
+					<br/>
+					<tr >
+						<td colspan="2"><input type="button" id="cmd" type="button" class="btn btn-primary" value="Print"></td>
+					</tr>
+					
+					
+			</table>	
+			-->
+			
+			
+			<div class="row input_field flex show_values_section">
+	
+		
+					
+		<div id="show_calcs">
+					<img src="images/menu_1.png" alt="calculations" id="menu_1" class="" width="50" height="50"/>
+		</div>
+		
+		<button id="cmd" type="button" class="btn btn-primary">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+						  <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+						  <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
+						</svg>
+					
+		</button>
+		
+	</div>
+	
+	
+		
+	
+	
+	
+	<div id="list_output">	
+		<div class="row input_field">
+    <div class="col-md-12" id="">
+        <ul id="estimated_total_breakdown" class="estimate_list">
+            <li class="estimate_breakdown">
+                <strong>Brand - </strong> <span id="brand_text"> </span>
+            </li>
+            <li class="estimate_breakdown">
+                <strong>Door Style - </strong> <span id="sub_brand_text"></span> :  
+                <span id="sub_brand_calc"></span>
+            </li>
+            <li class="estimate_breakdown">
+                <strong>Wood Specie - </strong> <span id="wood_specie_text"></span> :  
+                <span id="wood_specie_calc"></span>
+            </li>
+            <li class="estimate_breakdown">
+                <strong>Door Finish - </strong> <span id="door_finish_text"></span> :  
+                <span id="door_finish_calc"></span>
+            </li>
+            <li class="estimate_breakdown">
+                <strong>Linear Feet : </strong> <span id="linear_feet_calc"></span> 
+            </li>
+            <li class="estimate_breakdown">
+                <strong>Base Cabinets - </strong> <span id="base_cabinets_text"></span> :  
+				<span id="base_cabinets_calc">
+            </li>
+            <li class="estimate_breakdown">
+                <strong>Wall Cabinets - </strong> <span id="wall_cabinets_text"></span> :  
+				<span id="wall_cabinets_calc"></span>
+            </li>
+            <li class="estimate_breakdown">
+                <strong>Tall Cabinets - </strong> <span id="tall_cabinets_text"></span> :  
+				<span id="tall_cabinets_calc"></span>
+            </li>
+            <li class="estimate_breakdown">
+                <strong>Drawer Bases - </strong> <span id="drawer_bases_text"></span> :  
+                <span id="drawer_bases_calc"></span>
+            </li>
+            <li class="estimate_breakdown">
+                <strong>Molding - </strong> <span id="molding_text"></span> : 
+                <span id="molding_calc"></span>
+            </li>
+            <li class="estimate_breakdown">
+                <strong>Height - </strong> <span id="height_text"></span> : 
+                <span id="height_calc"></span>
+            </li>
+            <li class="estimate_breakdown">
+                <strong>Channals - </strong> <span id="channals_text"></span> : 
+                <span id="channals_calc"></span>
+            </li>
+            <li class="estimate_breakdown">
+                <strong>Accessories - </strong> <span id="acessories_text"></span> : 
+				<span id="acessories_calc"></span>
+            </li>
+            <li class="estimate_breakdown">
+                <strong>Specialty Items : </strong> <span id="speciality_item_calc"></span>
+            </li>
+        </ul>
+    </div>
+   
+    <div class="col-md-12">
+        <ul class="estimate_list">
+			<li class="estimate">
+                <strong>Range:</strong>
+                <span id="range_estimate_low"></span> - <span id="range_estimate_high"></span>
+            </li>
+            <li class="estimate">
+                <strong>Total:</strong> <span id="estimated_total_value"></span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+</div>
+
+</div>
+	
+	</div>
+
+	
+	
+	<div id="editor1" style="font-family: 'Montserrat'">
+	<style>
+
+			@media print {
+				@page {
+					size: 2525px 3300px;
+					margin: 0;
+				}
+				#editor {display: block};
+
+				
+			}
+			
+			
+			@font-face {
+			  font-family: 'Bebas Neue'; 
+			  src: url('https://fonts.googleapis.com/css?family=Bebas Neue') format('truetype');
+			  font-style: normal;
+			  font-weight: normal;
+			}
+			
+			@font-face {
+			  font-family: 'Montserrat'; 
+			  src: url('fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+			  font-style: normal;
+			  font-weight: normal;
+			}
+
+			@font-face {
+			  font-family: 'Montserrat-Italic'; 
+			  src: url('fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+			  font-style: normal;
+			  font-weight: normal;
+			}
+			
+			
+		
+			#editor1{
+				font-family: 'Montserrat' , 'Bebas Neue' , 'Mont', sans-serif ;
+			}
+			#editor1 div , #editor1 p , #editor1 span , #editor1 ol {
+				font-family: 'Montserrat' , 'Bebas Neue' , 'Mont', sans-serif ;
+			}
+		#editor1 .full_width{
+			width:102%;
+			padding:0;
+			margin:0;
+			margin-left:-1%;
+			margin-right:-1%;
+		}
+		#editor1 .bck_light_grey{
+			background:#f7f7f7;
+			padding:20px;
+		}
+		
+		#editor1 .width_logo , #editor1 #logo_print{
+				width:360px;
+			}
+			
+			#editor1 h1{
+				font-family: 'Montserrat' , 'Bebas Neue' , 'Mont', sans-serif ;
+				font-size: 80px;
+				font-weight: 700;
+				line-height: 110px;
+				letter-spacing: 0em;
+				text-align: center;
+				color:#000;
+				margin-bottom : 22px;
+			}
+			
+			#editor1 h1::after {
+				text-align: center;
+				content: ' ';
+				margin: 20px auto;
+				width: 200px;
+				display: block;
+				height: 2px;
+				border-bottom: 2px solid #eb2227;
+			}
+			
+			h1,h2{
+				font-family: 'Bebas Neue' , 'Montserrat' , 'Mont', sans-serif! important;
+			}
+			
+		#editor1 #heading_project_name{
+			font-family: 'Montserrat' , 'Bebas Neue' , 'Mont', sans-serif ;
+			font-size: 36px;
+			font-weight: 700;
+			line-height: 30px;
+			letter-spacing: 0em;
+			text-align: left;
+			color:grey !important;
+			
+			padding-left:60px;
+		}
+		#editor1 #pdf_consultation_recap{
+				margin-top:-15px;
+			}
+			#editor1 h2{
+				font-family: 'Montserrat' , 'Bebas Neue' , 'Mont', sans-serif ;
+				font-size: 48px;
+				font-weight: 700;
+				line-height: 52px;
+				letter-spacing: 0em;
+				text-align: left;
+				margin:10px 0;
+				color: #eb2227;
+			}
+			
+			
+			
+		#editor1 #specs_div , #editor1 .table_bck{
+			display: flex;
+			justify-content: space-between;
+			padding: 10px;
+		}
+		.top_25{}
+		#editor1 .flex{
+			display:flex;
+		}
+		#editor1 #head{
+			display:flex;
+			justify-content: space-around;
+			align-items: center;
+			margin:100px 0px; 
+		}
+		#editor1 #head .contact_details{
+			font-size: 28px;
+			font-weight: 400;
+			line-height: 36px;
+			letter-spacing: 0em;
+			text-align: right;
+			color:#000;
+			padding-right:15px;
+		}
+		#editor1 #project_details .row{
+			display:flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		#editor1 #project_details .row .left_sec{
+			font-size: 33px;
+			font-weight: 500;
+			line-height: 51px;
+			letter-spacing: 0em;
+			text-align: left;
+
+		}
+		#editor1 #project_details .row .right_sec{		
+			font-size: 33px;
+			font-weight: 400;
+			line-height: 40px;
+			letter-spacing: 0em;
+			text-align: left;
+			color: #565656;
+			margin-right:auto;
+		}
+		#editor1 #project_details .row .right_sec span{		
+			font-size: 33px;
+			font-weight: 600;
+			line-height: 40px;
+			letter-spacing: 0em;
+			text-align: left;
+			color: #000;
+		}
+		#editor1 #project_details .input_value{
+			font-size: 33px;
+			font-weight: 600;
+			line-height: 40px;
+			letter-spacing: 0em;
+			text-align: left;
+			color:#000;
+		}
+		#editor1 .v_center{
+			align-items: center;
+		}
+		#editor1 .flex_table{
+			flex-basis: 48%;
+			
+		}
+		#editor1 .flex_table.w_96{
+			flex-basis: 96%;
+			
+		}
+		#editor1 .flex_table.w_60{
+			flex-basis: 60%;
+			
+		}
+		#editor1 .flex_table.w_38{
+			flex-basis: 38%;
+			
+		}
+		#editor1 .flex_table.w_28{
+			flex-basis: 28%;	
+		}
+		#editor1  #appliances{
+			margin-top:100px;
+		}
+		#editor1  #appliances .bck_light_grey ,#editor1  #appliances .bck_light_grey .table_bck{
+			padding-top: 0px;
+		}
+
+		 #editor1  #appliances .bck_light_grey{
+			 padding : 0 !important;
+		 }
+		#editor1  .appliances_list{
+			display:flex;
+		}
+		
+		.pad-r-10{
+			padding-right:10px;
+		}
+		#editor1 .m-r-10{
+			margin-right:10px;
+		}
+		#editor1 .table_bck{
+			background:#f7f7f7;
+			
+		}
+		#editor1 .flex_table{
+			
+			padding:10px 0;
+			display:flex;
+			justify-content: flex-start;
+		}
+		
+		#editor1 .flex_table div .flex {
+			padding: 30px 10px;
+			border-bottom: 1px solid #5656563B;
+			display:flex;
+			justify-content:space-between;
+			
+		}
+		#appliances > div , #appliances > div > div{
+			padding-top:0 px !important;
+		}
+		
+		#editor1 .flex_table div.justify-normal{
+			justify-content:normal;
+		}
+		#editor1 .flex_table .border_0{
+			border-bottom : 0;
+		}
+		#editor1  .appliances_list, #editor1  .appliances_list div{
+			margin-top:0 !important;
+		}
+		#editor1 .flex_table div ,#editor1 .td_name{
+			font-size: 33px;
+			font-weight: 600;
+			line-height: 52px;
+			letter-spacing: 0em;
+			text-align: left;
+			color:#565656;
+		}
+		#editor1 .flex_table div{
+			font-size: 33px;
+			font-weight: 400;
+			line-height: 52px;
+			letter-spacing: 0em;
+			text-align: left;
+			color:#565656;
+			margin: 0;
+			
+			
+		}
+		
+		#editor1 #payment_sch{
+			margin-top: 5px !important;
+			
+		}
+		#editor1 #payment_sch h2{
+			line-height:60px;
+		}	
+		#editor1 .flex_table div:last-child{
+			/*border:0;*/
+		}
+		#editor1 .flex_table .td_value{
+			text-align:left !important;
+			font-size: 33px;
+			font-weight: 400;
+			line-height: 52px;
+			letter-spacing: 0em;
+			text-align: left;
+			color:#565656;
+		}
+		
+		#editor1 .flex_table.w_96 .td_value.text-left{
+			text-align:left !important;
+		}
+		
+		#editor1 #vision h3{
+			font-size: 54px;
+			font-weight: 700;
+			line-height: 60px;
+			letter-spacing: 0em;
+			text-align: center;
+			color: red;
+		}
+		
+		#editor1 #terms_conditions ol li , #editor1 #terms_conditions p{
+			font-size: 33px;
+			font-weight: 400;
+			line-height: 52px;
+			letter-spacing: 0em;
+			text-align: left;
+			color:#565656;
+		}
+		#editor1 .gap-10{
+			gap:10px;
+		}
+		
+		#editor1 #main{
+			padding:0 130px;
+		}
+		#sign_date{
+			padding-top:40px;
+		}
+		#editor1 #sign_date div{
+			display:flex;
+			justify-content:space-between;
+			font-size: 33px;
+			font-weight: 700;
+			line-height: 40px;
+			letter-spacing: 0em;
+			text-align: left;
+			color:#000;
+		}
+		#editor1 .flex_center {
+			justify-content: center;
+			display: flex
+		}
+		#editor1 .inline_flex {
+			display: inline-flex
+		}
+		.designer_row{
+			display: flex;
+			justify-content: center;
+			margin-top:40px;
+			gap: 50px;
+		}
+		#editor1 .designer_para{
+			font-size: 36px;
+			font-weight: 400;
+			line-height: 40px;
+			letter-spacing: 0em;
+			text-align: left;
+			color:#565656;
+			margin:0;
+			padding:0;
+		}
+		#editor1 .designer_para span{
+			text-decoration:underline;
+			font-size: 36px;
+		}
+		#editor1 .gap-25{
+			gap:25px;
+		}
+		#editor1  .text-bold{
+			font-weight : 700 !important;
+			color:#000;
+		}
+		#editor1 .flex_12{
+			flex-basis: 12%;
+		}
+		#editor1 .flex_7{
+			flex-basis: 7%;
+		}
+		#editor1 .flex_1{
+			flex: 1;
+		}
+		
+		#editor1 .flex_72{
+			flex-basis: 72%;
+		}
+		#editor1 .flex_col{
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+		}
+
+		.m_top_20{
+			margin-top: 20px;
+		}
+		.text-center{
+			text-align:center;
+		}
+		#specs , #specs_2{
+			display: flex;
+			margin-top : 25px;
+		}
+		#specs_2{
+			margin-top : 100px;
+		}
+		.justify-start{
+			justify-content: flex-start;
+		}
+		.justify-space-between{
+			justify-content: space-between;
+		}
+
+		#editor1 .mt-0 ,#editor1 .pt-0 , .mt-0 , .pt-0{
+			margin-top: 0 !important;
+			padding-top: 0 !important;
+		}
+		
+		#editor1 #specs_div {
+			height: 100%;
+		}
+
+		#editor1 #specs_div_2 {
+			display: flex;
+			flex-direction: column;
+			margin: 0;
+			padding: 0;
+			justify-content: space-between;
+			height: 100%;
+			border: 0;
+		}
+
+		#editor1 #payment_sch {
+			padding-bottom: 0;	
+		}
+
+		#editor1 .flex_basis_49{
+			flex-basis:50%;
+		}
+		#editor1 .flex_basis_48 , w_48{
+			flex-basis: 48%;
+		}
+		#editor1 .flex_basis_30{
+			flex-basis:30%;
+		}
+		#editor1 .flex_basis_25{
+			flex-basis:30%;
+		}
+		#editor1 .flex_basis_32{
+			flex-basis:32%;
+		}
+		.top_25{
+			margin-top:25px;
+		}
+		#editor1 .footer{
+			position:absolute;
+			bottom:85px;
+			padding-right: 130px;
+		}
+
+		#editor1 #specs_div , #editor1 #whats_next_div,#editor1 #payment_sch_div{
+			margin-top:15px !important;
+		}
+		#editor1 #payment_sch_div ,#editor1 #whats_next_div,#editor1 #specs_div {
+			padding-bottom: 20px;
+			
+		}
+		#pdf_current_date{
+			font-size:28px;
+		}
+		.upper_cap{
+			text-transform: uppercase;
+		}
+		#editor1 #appliances h2{
+			margin-bottom:15px;
+		}
+		.range_val , .total_val{
+			font-size:42px;
+		}
+		.main_heading{
+			justify-content : center;
+			text-align:center;
+		}
+			
+	</style>
+		
+		
+		<div class="full_width">
+			
+		</div>
+		
+		<div id="main" class="row_section">
+		
+			<div id="head" class="flex">
+				
+				<div class="w_48 text-center">	
+					<div class="width_logo text-center"><img src="images/logo.png" alt="logo" id="logo_print" class=""> 
+					<br> <br/><span id="pdf_current_date"></span></div>
+				</div>
+				<div class="w_48">
+					<h1 class="upper_cap text-center main_heading">Cabinet Cost <br/>Estimator</h1>	
+				</div>
+			</div>
+
+			<div id="specs" class="table_container justify-space-between">
+					
+					
+						<div class="flex_table flex_col w_48 border_0">
+							<h2>Cabinet Details</h2>
+							<br/>
+							<div id="specs_div" class="table_bck flex_col border_0">
+								<div class=" flex"> 
+									<div class="text-bold ">Main Brand - <span id="pdf_brand_text"> </span> </div>  
+									
+								</div>
+								<div class="flex"> 
+									<div class="text-bold ">Door Style -  <span id="pdf_sub_brand_text" class=""> </span> </div> 
+									<div class="pdf_option_value" id = "pdf_sub_brand_calc"></div>
+								</div>
+								<div class="flex"> 
+									<div class=" text-bold ">Wood Specie - <span id="pdf_wood_specie_text" class=""> </span></div> 
+									<div class="pdf_option_value" id = "pdf_wood_specie_calc"></div>					
+								</div>
+								<div class="flex">
+									<div class=" text-bold ">Door Finish -  <span id="pdf_door_finish_text" class=""> </span> </div> 
+									<div class="pdf_option_value" id = "pdf_door_finish_calc"></div>  
+								</div>
+								
+							</div>		
+						</div>
+						<div class="flex_table flex_col w_48">
+							<h2>Space Details</h2>
+							<br/>
+							<div id="specs_div" class="table_bck flex_col border_0">
+								<div class=" flex"> 
+									<div class="text-bold ">Linear Feet </div>	
+									<div class="pdf_option_value" id = "pdf_linear_feet_calc"></div>									
+								</div>
+								<div class="flex"> 
+									<div class="text-bold ">Height -  <span id="pdf_height_text" class=""></span> 			</div>	
+									<div class="pdf_option_value" id ="pdf_height_calc"></div>
+								</div>
+								<div class="flex"> 
+									<div class=" text-bold ">Base Cabinet - <span id="pdf_base_cabinets_text" class=""> </span> 			</div>		
+									<div class="pdf_option_value" id ="pdf_base_cabinets_calc"></div>
+								</div>
+								<div class="flex"> 
+									<div class=" text-bold ">Wall cabinet -  <span id="pdf_wall_cabinets_text" class=""> </span> </div>  
+									<div class="pdf_option_value" id ="pdf_wall_cabinets_calc"></div>
+								</div>
+								
+							</div>		
+								
+						
+						</div>
+			</div>
+				
+			<div id="specs_2" class="table_container justify-space-between">
+					
+					
+					<div class="flex_table flex_col w_48">
+							<h2>Enhancements</h2>
+							<br/>
+							<div id="specs_div" class="table_bck flex_col border_0">
+								<div class=" flex"> 
+									<div class="text-bold ">Tall Cabinets -  <span id="pdf_tall_cabinets_text"> </span> </div>	
+									<div class="pdf_option_value" id = "pdf_tall_cabinets_calc"></div>									
+								</div>
+								<div class="flex"> 
+									<div class="text-bold ">Drawer Bases -  <span id="pdf_drawer_bases_text"> </span> 	</div>	
+									<div class="pdf_option_value" id ="pdf_drawer_bases_calc"></div>
+								</div>
+								<div class="flex"> 
+									<div class=" text-bold ">Molding - <span id="pdf_molding_text" class=""> </span> 			</div>		
+									<div class="pdf_option_value" id ="pdf_molding_calc"></div>
+								</div>
+							</div>		
+								
+						
+					</div>
+						
+					<div class="flex_table flex_col w_48 border_0">
+							
+							<h2>Specialities</h2>
+							<br/>
+							<div id="specs_div" class="table_bck flex_col border_0">
+								<div class="flex"> 
+									<div class="text-bold ">Channals -   <span id="pdf_channals_text" class=""> </span>  </div> 
+									<div class="pdf_option_value" id = "pdf_channals_calc"></div>
+								</div>
+								<div class="flex"> 
+									<div class=" text-bold ">Accessories - <span id="pdf_accessories_text" class=""> </span>  </div>  
+									<div class="pdf_option_value" id = "pdf_accessories_calc"></div>					
+								</div>
+								<div class="flex">
+									<div class=" text-bold "> Speciality Items </div> 
+									<div class="pdf_option_value" id = "pdf_speciality_item_calc"></div>  
+								</div>
+								
+							</div>		
+					</div>
+						
+			</div>
+			
+			<br/>
+			<br/>
+			<br/>
+			<div class="text-center">
+				<h3 class="text-center range_val"> Range : <span id="pdf_range_estimate_low"> - </span> -  <span id="pdf_range_estimate_high"> - </span> </h3>
+			</div>
+			
+			<div class="text-center">
+				<h3 class="text-center total_val"> Total : <span id="pdf_estimated_total_value"> - </span>  </h3>
+			</div>
+		</div><!-- end main -->
+		
+<!--
+		<div class="br_line"><br></div>
+		
+		<table id="input_data_table_3" class="table_print_pdf">
+			<tbody>
+				<tr>
+					<td colspan="3" class="text-bold text-center">Brand - <span id="pdf_brand_text"> </span></td>
+				</tr>
+				
+				<tr>
+					<td class="text-bold"> Estimated Total</td>
+				
+					<td class="text-bold text-center" id="pdf_estimated_total_value" colspan="2">  </td>
+
+				</tr>
+				
+				<tr class=""text-bold">
+					<td class="text-bold"> Description </td>
+					<td class="text-bold"> Selected Option </td>
+					<td class="text-bold"> Estimate </td>
+				</tr>
+				
+				
+				<tr>
+					<td class=""> Sub Brand </td>
+					<td id="pdf_sub_brand_text"> </td>
+					<td class="" id="pdf_sub_brand_calc"> 200  </td>
+
+				</tr>
+				<tr>
+					<td>Wood Specie </td>
+					<td id="pdf_wood_specie_text">- </td>
+					<td id="pdf_wood_specie_calc">- </td>
+				</tr>
+				<tr>
+					<td> Linear Feet </td>
+					<td id="pdf_linear_feet_text"> - </td>
+					<td id="pdf_linear_feet_calc"> - </td>
+				</tr>
+				<tr>
+					<td> Base Cabinets </td>
+					<td id="pdf_base_cabinets_text"> - </td>
+					<td id="pdf_base_cabinets_calc"> - </td>
+				</tr>
+				<tr>
+					<td> Wall Cabinets </td>
+					 <td id="pdf_wall_cabinets_text"> - </td>
+					<td id="pdf_wall_cabinets_calc"> - </td>
+				</tr>
+				<tr>
+					<td> Tall Cabinets </td>
+					<td id="pdf_tall_cabinets_text"> - </td>
+					<td id="pdf_tall_cabinets_calc"> - </td>
+				</tr>
+				
+			</tbody>
+		</table>	
+
+		<div class="br_line"><br></div>
+		
+		<table id="input_data_table_4" class="table_print_pdf">
+			<tbody>
+				<tr class=""text-bold">
+					<td class="text-bold"> Description </td>
+					<td class="text-bold"> Selected Option </td>
+					<td class="text-bold"> Estimate </td>
+				</tr>
+				<tr>
+					<td> Drawer Bases </td>
+					<td id="pdf_drawer_bases_text"> - </td>
+					<td id="pdf_drawer_bases_calc"> - </td>
+				</tr>
+				<tr>
+					<td> Molding </td>
+					<td id="pdf_molding_text"> - </td>
+					<td id="pdf_tall_cabinets_calc"> - </td>
+				</tr>
+				<tr>
+					<td> Height </td>
+					<td id="pdf_height_text"> - </td>
+					<td id="pdf_height_calc"> - </td>
+				</tr>
+				<tr>
+					<td> Channals  </td>
+					<td id="pdf_channals_text"> - </td>
+					<td id="pdf_channals_calc"> - </td>
+				</tr>
+				<tr>
+					<td> Accessories  </td>
+					<td id="pdf_accessories_text"> - </td>
+					<td id="pdf_accessories_calc"> - </td>
+				</tr>
+			</tbody>
+		</table>
+
+
+		<div class="br_line"><br></div>
+		
+		<table id="input_data_table_5" class="table_print_pdf">
+			<tbody>
+				<tr>
+					<td> Speciality Items </td>
+					<td id="pdf_speciality_item_calc"> - </td>
+				</tr>
+		</tbody>
+		</table>	
+
+		<div class="br_line"><br></div>
+		
+		<div class="table_print_1">
+			<table id="input_data_table_t_cost">
+				<tbody>
+					
+					<tr>
+						<td class="text-center">
+							<h3 class="text-center"> Range : <span id="pdf_range_estimate_low"> - </span> -  <span id="pdf_range_estimate_high"> - </span> </h3>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p> </p>
+		</div>	
+		
+		-->	
+		<!-- don't delete this -->
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/print.min.js"></script>
+	<script src="js/jquery_validate.js"></script>	
+	<script src="js/brandData.js"></script>	
+	<script src="js/calc_main.js"></script>
+	 	 
+	<script>
+		$(document).ready(function(){
+			$('#cmd').click(function () {  
+/*			
+				$('#list_output , .estimate_breakdown').show();
+				
+				$("html, body").animate({
+					scrollTop: $("#list_output").offset().top + 50
+				}, 800);
+				*/
+				 printJS('editor1', 'html');								
+			});				 
+		});	
+	 </script>
+	 
+	 
+	
+	 
+	 
+	 
+	
+
+</body>
+</html>
