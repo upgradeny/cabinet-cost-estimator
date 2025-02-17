@@ -100,9 +100,9 @@ console.log(classes);
     });
 	
 */
+			
 
-
-
+/*
 	
 			jQuery('#toggleOptional').change(function () {
 				if ($(this).is(':checked')) {
@@ -112,16 +112,35 @@ console.log(classes);
 				}
 			});
 			
+*/
+
+			var isOpen = false;
+
+			$('#show_calcs').click(function () {
+				$('.calc_field_hidden').toggle(); // Show/hide the element
+				isOpen = !isOpen; // Toggle state
+				
+				// Change the image based on the state
+				if (isOpen) {
+					$('#menu_1').attr('src', 'images/close.png'); // Change to close icon
+				} else {
+					$('#menu_1').attr('src', 'images/menu_1.png'); // Change back to open icon
+				}
+			});
 			
+			
+			/*
 			 $('#show_calcs').click(function () {   
+				// $('.calc_field_hidden').show()
 				$('#list_output , .estimate_breakdown').show();
 				
 				$("html, body").animate({
 					scrollTop: $("#list_output").offset().top + 50
 				}, 800);
+				
 											
 			});	
-
+*/
 
             populateMainBrands();
             populateSubBrands();
@@ -171,22 +190,8 @@ console.log(classes);
 			  }
 			});
 			
-			// perform validation and calculations on click
-				
-			jQuery( "#price_calc_btn , select , input.form-control" ).on("click change", function(event) {
-
-				event.preventDefault();
-
-				
-				var validator = $( "#priceCalcForm" ).validate();
-					if( ! validator.form() ){
-						$('html, body').animate({
-							scrollTop: $("body").offset().top
-						}, 1000);
-						return;
-
-					} 
-
+			
+			function initial_estimate_calc(){
 				// defining variables and getting input values
 				
 				let linear_feet = jQuery('#linear_feet').val();
@@ -219,12 +224,6 @@ console.log(classes);
 				
 				let tall_cabinets_calc = sub_brand * tall_cabinets  * tall_cabinets_price_per_feet * tall_cabinets_factor;
 				
-				/*
-				console.log("base_cabinets_calc: " + base_cabinets_calc);
-				console.log("wall_cabinets_calc: " + wall_cabinets_calc);
-				console.log("tall_cabinets_calc: " + tall_cabinets_calc);
-				*/
-				
 				let drawer_bases = jQuery('#drawer_bases').val();
 				let molding = jQuery('#molding').val();
 				let height = jQuery('#height').val();
@@ -236,28 +235,19 @@ console.log(classes);
 				let channals_calc = sub_brand_calc * channals / 100; 
 
 				let accessories = jQuery('#accessories').val();
-				console.log(accessories);
+				
 				let acessories_calc = accessories * acessories_factor; 
 
 				
 				let speciality_item = parseFloat ( jQuery('#speciality_item').val() );
 				
 				var estimated_total_value = round_2_digits ( sub_brand_calc + wood_specie_calc + door_finish_calc + base_cabinets_calc + wall_cabinets_calc + tall_cabinets_calc + drawer_bases_calc + molding_calc + height_calc + channals_calc + acessories_calc + speciality_item );
-				
-				
-				//estimated_total_value = Math.round(estimated_total_value / 1000) * 1000;
+
 				estimated_total_value = Math.ceil(estimated_total_value / 50) * 50;
-				/*
-				if (estimated_total_value > 9999 ) {
-					estimated_total_value = Math.round(estimated_total_value / 1000) * 1000;
-				}
-				*/
-				//var range_estimate_low = round_2_digits ( estimated_total_value * 0.93 );
-				//range_estimate_low = Math.floor(estimated_total_value / 1000) * 1000;
+				
 				range_estimate_low = Math.round((estimated_total_value * 0.93) / 1000) * 1000;
 				
-				//var range_estimate_high = round_2_digits ( estimated_total_value * 1.07 );
-				//range_estimate_high = Math.ceil(estimated_total_value / 1000) * 1000;
+				
 				range_estimate_high = Math.round((estimated_total_value * 1.07) / 1000) * 1000;
 				
 				jQuery('#estimated_total_value , #pdf_estimated_total_value').text(" $ " + estimated_total_value);
@@ -298,30 +288,45 @@ console.log(classes);
 				let currentDate = new Date().toLocaleDateString();
 				jQuery('#pdf_current_date').text(currentDate);
 				
-				jQuery('.estimate , #range , .show_values_section').slideDown(400);
-				jQuery('#range').css("display", "inline-block")
-				jQuery('.show_values_section').css("display", "flex")
+				
 				
 				jQuery('#base_cabinets_text , #pdf_base_cabinets_text').text(base_cabinets);
 				jQuery('#wall_cabinets_text , #pdf_wall_cabinets_text').text(wall_cabinets);
 				jQuery('#tall_cabinets_text , #pdf_tall_cabinets_text').text(tall_cabinets);
 				jQuery('#acessories_text , #pdf_accessories_text').text(tall_cabinets);
-				/*
-				jQuery('#pdf_linear_feet_text').text(linear_feet);
-				jQuery('#pdf_wood_specie_text').text(wood_specie);
-				jQuery('#pdf_door_finish_text').text(door_finish);
+			
+			}
+			
+			// perform validation and calculations on click
 				
-				
-				jQuery('#pdf_drawer_bases_text').text(jQuery('#drawer_bases  option:selected').text());
-				jQuery('#pdf_molding_text').text(jQuery('#molding  option:selected').text());
-				jQuery('#pdf_height_text').text(jQuery('#height  option:selected').text());
-				jQuery('#pdf_channals_text').text(jQuery('#channals  option:selected').text());
-				
-				jQuery('#pdf_accessories_text').text(accessories);
-				
-				*/
+			jQuery( "select , input.form-control" ).on("change", function(event) {
+
+				event.preventDefault();
+
+				initial_estimate_calc();
 				
 				
 			});	
+			
+			jQuery( "#price_calc_btn" ).on("click", function(event) {
+
+				event.preventDefault();
+			
+				var validator = $( "#priceCalcForm" ).validate();
+				if( ! validator.form() ){
+					$('html, body').animate({
+						scrollTop: $("body").offset().top
+					}, 1000);
+					return;
+				} 
+				
+				initial_estimate_calc();
+				
+				jQuery('.estimate , #range , .show_values_section').slideDown(400);
+				jQuery('#range').css("display", "inline-block");
+				jQuery('.show_values_section').css("display", "flex");
+
+			});	
+			
 			
 });
