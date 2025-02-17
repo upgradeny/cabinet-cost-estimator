@@ -479,7 +479,7 @@ div#range span{
 }
 #cmd svg{
 	width:auto;
-	height:32px;
+	height:24px;
 }
 .show_values_section{
 	display:flex;
@@ -526,4 +526,5 @@ h1::after {
 }
 .show_values_section {
     justify-content: flex-end !important;
+	align-items: baseline;
 }
