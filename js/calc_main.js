@@ -122,7 +122,7 @@ console.log(classes);
 				
 				// Change the image based on the state
 				if (isOpen) {
-					$('#menu_1').attr('src', 'images/close.png'); // Change to close icon
+					$('#menu_1').attr('src', 'images/Close.png'); // Change to close icon
 				} else {
 					$('#menu_1').attr('src', 'images/menu_1.png'); // Change back to open icon
 				}
