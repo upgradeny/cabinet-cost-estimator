@@ -47,10 +47,10 @@ const brandData = {
                     "Group A/B (Amherst) // Full Inset Overlay": 244.99
                 },
                 "CuisineIdeale": {
-                    "PG 01 (Polymer)": 510.60,
-                    "PG 03 (Belmont)": 676.20,
-                    "PG 04 (Bristol)": 805.00,
-                    "PG 09 (Stanbridge)": 844.10
+                    "PG 01 (Polymer)": 00.00,
+                    "PG 03 (Belmont)": 00.00,
+                    "PG 04 (Bristol)": 00.00,
+                    "PG 09 (Stanbridge)": 00.00
                 },
                 "Glamour": {
                     "Custom // 3/4\" Shaker // Melamine": 365.08,
