@@ -43,7 +43,7 @@ const brandData = {
                     "Group A/B (Amherst) // Euro Full Overlay": 244.99,
                     "Group B/B (Park Ave - MDF) // Euro Full Overlay": 249.92,
                     "Group D/F (Alexandria) // Euro Full Overlay":268.89,
-                    "Group A/B (Amherst) // Beaded Inset Overlay": 337.63
+                    "Group A/B (Amherst) // Beaded Inset Overlay": 337.63,
                     "Group A/B (Amherst) // Full Inset Overlay": 244.99
                 },
                 "CuisineIdeale": {
