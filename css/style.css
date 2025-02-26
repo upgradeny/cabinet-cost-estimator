@@ -466,6 +466,7 @@ div#range {
     color: #fff;
     display: inline-block;
     border-radius: 10px;
+    margin-top: 25px;
 }
 div#range span{
     color: #fff;
