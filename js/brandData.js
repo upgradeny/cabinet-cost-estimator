@@ -1,5 +1,5 @@
 const brandData = {
-        * 
+        
 	       "Please select": { 
 		    "": 0 
 		},
