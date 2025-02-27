@@ -247,10 +247,15 @@ console.log(classes);
 
 				estimated_total_value = Math.ceil(estimated_total_value / 50) * 50;
 				
-				range_estimate_low = Math.floor((estimated_total_value * 0.93) / 1000) * 1000;
+				//range_estimate_low = Math.floor((estimated_total_value * 0.93) / 1000) * 1000;
 				
 				
-				range_estimate_high = Math.ceil((estimated_total_value * 1.07) / 1000) * 1000;
+				//range_estimate_high = Math.ceil((estimated_total_value * 1.07) / 1000) * 1000;
+				
+				range_estimate_low = Math.floor((estimated_total_value ) / 1000) * 1000;
+				
+				
+				range_estimate_high = Math.ceil((estimated_total_value ) / 1000) * 1000;
 				
 				jQuery('#estimated_total_value , #pdf_estimated_total_value').text(" $ " + estimated_total_value);
 				jQuery('#range_estimate_low , #pdf_range_estimate_low').text(" $ " +range_estimate_low);
