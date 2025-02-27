@@ -1,7 +1,9 @@
 const brandData = {
-                "N/A": { 
+               /* 
+	       "N/A": { 
 		    "N/A": 205.48 
 		},
+  */
                 "Wise": { 
 		    "Standard": 121.68
 		},
