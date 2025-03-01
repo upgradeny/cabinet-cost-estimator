@@ -229,13 +229,14 @@ console.log(classes);
 				let drawer_bases = jQuery('#drawer_bases').val();
 				let molding = jQuery('#molding').val();
 				let height = jQuery('#height').val();
+				console.log('height => ' , height);
 				let channals = jQuery('#channals').val();
 				
 				let drawer_bases_calc = round_2_digits( sub_brand_calc * drawer_bases / 100 ); 
 				let molding_calc = round_2_digits ( sub_brand_calc * molding / 100 ); 
 				let height_calc = sub_brand_calc * height / 100; 
-				let channals_calc = sub_brand_calc * channals / 100; 
-
+				//let channals_calc = sub_brand_calc * channals / 100; 
+				let channals_calc = linear_feet * channals; 
 				let accessories = jQuery('#accessories').val();
 				
 				let acessories_calc = accessories * acessories_factor; 
