@@ -1,4 +1,6 @@
 $(document).ready(function(){	
+
+	console.log(123);
 			function round_zero_decimal_digits(num1){
 				return Math.round(parseFloat(num1)) ;
 			}
@@ -61,7 +63,7 @@ $(document).ready(function(){
 
 			populateAccessories("#accessories", 1, 50);
 
-
+console.log(123);
 /*
     jQuery(".show_calc_field_hidden").click(function () {
 		
@@ -192,7 +194,7 @@ console.log(classes);
 			  }
 			});
 			
-			
+		console.log(123);	
 			function initial_estimate_calc(){
 				// defining variables and getting input values
 				
