@@ -1,6 +1,7 @@
 $(document).ready(function(){	
 
-	console.log(123);
+
+	
 			function round_zero_decimal_digits(num1){
 				return Math.round(parseFloat(num1)) ;
 			}
@@ -327,8 +328,38 @@ console.log(classes);
 				}else{
 					jQuery('.pdf_option_value').text('');
 				}
+				
+				
+				var files = jQuery("#fileInput")[0].files;
+				//jQuery("#preview").empty();
+				console.log(files);
+				if (files.length >= 0) {
+					console.log("files uploaded");
+					jQuery.each(files, function (index, file) {
+                    let reader = new FileReader();
+					let filePreview = jQuery("<div class='file-preview'></div>");
+                    reader.onload = function (e) {
+                        let filePreview = jQuery("<div class='file-preview'></div>");
+						filePreview.empty();
+                        if (file.type.startsWith("image/")) {
+                            filePreview.append("<img class='uploaded-image' src='" + e.target.result + "'>");
+                        } else if (file.type === "application/pdf") {
+                            filePreview.append("<embed src='" + e.target.result + "'>");
+                        }
+						
+						jQuery(Preview).append(filePreview);
+                        jQuery("#editor1 #main").append(Preview);
+                    };
+
+                    if (file.type.startsWith("image/") || file.type === "application/pdf") {
+                        reader.readAsDataURL(file);
+                    }
+                });
+}
 			
 			}
+			
+			let Preview = jQuery('<div id="preview"></div>');
 			
 			// perform validation and calculations on click
 				
@@ -352,7 +383,7 @@ console.log(classes);
 					}, 1000);
 					return;
 				} 
-				
+				jQuery("#preview").html('');
 				initial_estimate_calc();
 				
 				jQuery('.estimate , #range , .show_values_section').slideDown(400);
