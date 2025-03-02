@@ -348,7 +348,7 @@
 			<div class="row input_field flex show_values_section">
 	
 		
-					
+		<input type="file" id="fileInput" multiple accept="image/*,application/pdf">		
 		<div id="show_calcs">
 					<img src="images/menu_1.png" alt="calculations" id="menu_1" class="" width="40" height="40"/>
 		</div>
@@ -912,6 +912,20 @@
 			justify-content : center;
 			text-align:center;
 		}
+		
+		.file-preview{ text-align : center;}
+		.file-preview img{ margin : 50px auto;}
+		
+		@media print {
+			#preview {
+				page-break-before: always;
+				break-before: always; /* For modern browsers */
+			}
+		}
+
+		
+		
+	
 			
 	</style>
 		
@@ -1043,6 +1057,8 @@
 			<div class="text-center">
 				<h3 class="text-center total_val"> Total : <span id="pdf_estimated_total_value"> - </span>  </h3>
 			</div>
+			
+			<!--<div id="preview"></div>-->
 		</div><!-- end main -->
 		
 <!--
