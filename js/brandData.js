@@ -48,7 +48,7 @@ const brandData = {
                     "Group A/B (Amherst) // Beaded Inset Overlay": 337.63,
                     "Group A/B (Amherst) // Full Inset Overlay": 244.99
                 },
-                "CuisineIdeale": {
+                "Cuisine Ideale": {
                     "PG 01 (Polymer)": 0,
                     "PG 03 (Belmont)": 0,
                     "PG 04 (Bristol)": 0,
