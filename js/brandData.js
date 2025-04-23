@@ -5,48 +5,48 @@ const brandData = {
 		},
   
                 "Wise": { 
-		    "Standard": 227.49
+		    "Standard": 261.61
 		},
                 "CNC": {
-                    "Country Oak (R)": 187.13,
-                    "Luxor (L)": 233.28,
-                    "Concord Elegant (A)": 292.49,
-                    "Milano/Versailles (F)": 287.39,
-                    "Alvic (H)": 296.08,
-                    "Alvic (I)": 387.49
+                    "Country Oak (R)": 215.20,
+                    "Luxor (L)": 268.27,
+                    "Concord Elegant (A)": 336.37,
+                    "Milano/Versailles (F)": 330.5,
+                    "Alvic (H)": 340.5,
+                    "Alvic (I)": 445.62
                 },
                 "Cubitac": {
-                    "Ridgefield Latte": 268.15,
-                    "Bolt Lace": 265.59,
-                    "Oxford Latte": 271.95,
-                    "Dover Latte": 290.42,
-                    "Madison Latte": 330.34,
-                    "Montclair Cashmere": 400.92
+                    "Ridgefield Latte": 308.38,
+                    "Bolt Lace": 305.42,
+                    "Oxford Latte":312.75,
+                    "Dover Latte": 333.98,
+                    "Madison Latte": 379.89,
+                    "Montclair Cashmere": 461.06
                 },
                 "Fabuwood": {
-                    "Discovery/Metro": 250.07,
-                    "Galaxy": 340.27,
-                    "Luna/Onyx/Nexus/Fusion/Imperio": 385.83,
-                    "Catalina (Solids & Designer)": 407.81
+                    "Discovery/Metro": 287.59,
+                    "Galaxy": 391.31,
+                    "Luna/Onyx/Nexus/Fusion/Imperio": 443.7,
+                    "Catalina (Solids & Designer)": 468.98
                 },
                 "CNG": {
-                    "Adroit PET": 261.05,
-                    "Adroit Tafisa": 243.86,
-                    "CNG PET // Comodo Box + Metal Drawer": 287.92,
-                    "CNG PET // White Box + Plywood Drawer + Blum": 344.72,
-                    "CNG PET // White Box + Metal drawer": 296.67
+                    "Adroit PET": 300.20,
+                    "Adroit Tafisa": 280.44,
+                    "CNG PET // Comodo Box + Metal Drawer": 331.11,
+                    "CNG PET // White Box + Plywood Drawer + Blum": 396.42,
+                    "CNG PET // White Box + Metal drawer": 341.17
                 },
                 "Adornus": {
-                    "Trends": 368.39,
-                    "Essential": 318.39,
-                    "Designer": 196.79
+                    "Trends": 226.31,
+                    "Essential": 366.15,
+                    "Designer": 423.65
                 },
                 "Candlelight": {
-                    "Group A/B (Amherst) // Euro Full Overlay": 447.37,
-                    "Group B/B (Park Ave - MDF) // Euro Full Overlay": 456.37,
-                    "Group D/F (Alexandria) // Euro Full Overlay":491.02,
-                    "Group A/B (Amherst) // Beaded Inset Overlay": 616.55,
-                    "Group A/B (Amherst) // Full Inset Overlay": 447.37
+                    "Group A/B (Amherst) // Euro Full Overlay": 514.48,
+                    "Group B/B (Park Ave - MDF) // Euro Full Overlay": 524.83,
+                    "Group D/F (Alexandria) // Euro Full Overlay":564.67,
+                    "Group A/B (Amherst) // Beaded Inset Overlay": 709.03,
+                    "Group A/B (Amherst) // Full Inset Overlay": 514.48
                 },
                 "Cuisine Ideale": {
                     "PG 01 (Polymer)": 0,
@@ -55,10 +55,10 @@ const brandData = {
                     "PG 09 (Stanbridge)": 0
                 },
                 "Glamour": {
-                    "Custom // 3/4\" Shaker // Melamine": 666.67,
-                    "Custom // Slab Door // Melamine": 500,
-                    "Custom // Slab Door // Paint": 666.67,
-                    "Custom // Slab Door // Wood Veneer": 833.33
+                    "Custom // 3/4\" Shaker // Melamine": 766.67,
+                    "Custom // Slab Door // Melamine": 575,
+                    "Custom // Slab Door // Paint": 766.67,
+                    "Custom // Slab Door // Wood Veneer": 958.33
                 }
             };
 			
